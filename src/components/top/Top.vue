@@ -1,9 +1,9 @@
 <template>
  <div id="top">
    <div id="content">
-      <div id="left">欢迎*******来到小萧后台管理系统</div>
+      <div id="left">欢迎{{user.name}}来到小萧后台管理系统</div>
       <div id="right">
-        <div class="good">*******，亲爱的*******</div>
+        <div class="good">*******，亲爱的{{user.name}}</div>
         <div>上次登录时间：*******</div>
       </div>
     </div>
@@ -14,7 +14,8 @@
  export default {
    data () {
      return {
-
+       user:{},
+       date:''
      }
    },
    components: {
@@ -24,7 +25,8 @@
 
    },
    mounted() {
-
+     this.user = JSON.parse(localStorage.getItem("user"))
+     console.log(this.user);
    },
    watch: {
 

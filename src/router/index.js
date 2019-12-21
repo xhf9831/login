@@ -108,6 +108,38 @@ const routes = [{
             component: () =>
                 import ('../views/exit/Exit.vue')
         }]
+    },
+    {
+        path: '/notice',
+        component: common,
+        children: [{
+            path: '',
+            name: 'notice',
+            component: () =>
+                import ('../views/notice/Notice.vue')
+        }]
+    },
+    {
+        path: '/edit',
+        component: common,
+        children: [{
+            path: '',
+            name: 'edit',
+            component: () =>
+                import ('../views/edit/Edit.vue')
+        }]
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () =>
+            import ('../views/login/Login.vue')
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: () =>
+            import ('../views/register/Register.vue')
     }
 ]
 
@@ -116,5 +148,14 @@ const router = new VueRouter({
     base: process.env.BASE_URL,
     routes
 })
+
+router.beforeEach((to, from, next) => {
+    let user = localStorage.getItem("user");
+    if (to.path === "/login" || to.path === "/register") {
+        next();
+    } else {
+        user ? next() : next("/login");
+    }
+});
 
 export default router

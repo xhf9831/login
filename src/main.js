@@ -10,12 +10,14 @@ import VCharts from 'v-charts'
 import JsonExcel from 'vue-json-excel'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
+import lodash from "lodash"
 
 Vue.use(mavonEditor)
 Vue.component('downloadExcel', JsonExcel)
 Vue.use(VCharts)
 Vue.prototype.$axios = service
 Vue.prototype.$dayjs = dayjs
+Vue.prototype.$lodash = lodash;
 Vue.use(ElementUI);
 Vue.config.productionTip = false
 

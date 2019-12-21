@@ -1,6 +1,6 @@
 <template>
  <div id="exit">
-   <el-button type="primary">退出登录</el-button>
+   <el-button type="primary" @click="exit('/login')">退出登录</el-button>
  </div>
 </template>
 
@@ -15,7 +15,10 @@
 
    },
    methods: {
-
+     exit(text){
+      localStorage.clear()
+      this.$router.push(text)
+     }
    },
    mounted() {
 

@@ -92,11 +92,7 @@ router.post('/delete', async (ctx) => {
 
 // 编辑文章
 router.post('/update', async ctx => {
-  console.log(ctx.request.body)
   const _id = ctx.request.body.id
-  let d = new Date(ctx.request.body.date)
-  let times = d.getFullYear() + '年' + (d.getMonth() + 1) + '月' + d.getDate() + '日' + d.getHours() + '时' + d.getMinutes() + '分' + d.getSeconds() + '秒'
-  console.log(times)
   await Article.findByIdAndUpdate(_id,
     {
       title: ctx.request.body.title,
@@ -106,7 +102,7 @@ router.post('/update', async ctx => {
       source: ctx.request.body.source,
       star: ctx.request.body.star,
       text: ctx.request.body.text,
-      date: times
+      date: ctx.request.body.date
     }).then(res => {
     ctx.body = {
       data: res,

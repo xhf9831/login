@@ -2,7 +2,7 @@
  <div id="edit">
    <div class="top">
      <div class="but">
-      <el-button type="danger">查看</el-button>
+      <el-button type="danger" @click="go('/already')">查看</el-button>
       <el-button type="primary" @click="getup">发布</el-button>
      </div>
    </div>
@@ -160,13 +160,27 @@
         this.$router.push('/already')
      }
     })
+    },
+    go(text){
+      this.$router.push(text)
     }
    },
    mounted() {
 
    },
    watch: {
-
+     "ruleForm.date": {
+      handler(val) {
+        if (val > new Date()) {
+          this.ruleForm.date = new Date();
+          this.$message({
+            type: "error",
+            message: "不能超过当前时间!"
+          });
+        }
+      },
+      deep: true
+    }
    },
    computed: {
 
