@@ -10,6 +10,7 @@
   <div class="content">
     <order class="order"></order>
     <todo class="todo"></todo>
+    <progressp class="progress"></progressp>
   </div>
  </div>
 </template>
@@ -22,6 +23,7 @@ import ring from '../../components/homestructure/Ring'
 import histogoram from '../../components/homestructure/Histogoram'
 import order from '../../components/homestructure/Order'
 import todo from '../../components/homestructure/Todo'
+import progressp from '../../components/homestructure/Progressp'
  export default {
    data () {
      return {
@@ -35,7 +37,8 @@ import todo from '../../components/homestructure/Todo'
      ring,
      histogoram,
      order,
-     todo
+     todo,
+     progressp
    },
    methods: {
      
@@ -68,9 +71,17 @@ import todo from '../../components/homestructure/Todo'
   }
 }
 .content{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
   .order{
+    width: 50%;
   }
   .todo{
+    width: 25%;
+  }
+  .progress{
+    width: 25%;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
- <div>
-
+ <div id="exit">
+   <el-button type="primary">退出登录</el-button>
  </div>
 </template>
 
@@ -30,5 +30,8 @@
 </script>
 
 <style scoped lang='scss'>
-
+#exit{
+  text-align: center;
+  margin-top: 40vh;
+}
 </style>

@@ -27,10 +27,8 @@
       this.$axios
       .req("/ringChat ")
       .then(res => {
-        Object.keys(res.data[0]).map(item => {
-            this.chartData.columns.push(item);
-          })
-          (this.chartData.rows = res.data)
+        this.chartData.columns = Object.keys(res.data[0])
+        this.chartData.rows = res.data
       }).catch(err => {
         console.log(err)
       })

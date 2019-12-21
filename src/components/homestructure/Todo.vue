@@ -98,7 +98,6 @@
       this.$axios
       .req("/todoList")
       .then(res => {
-       console.log(res)
        this.list=res.data
       }).catch(err => {
         console.log(err)
