@@ -139,6 +139,10 @@
                   message: "用户名或者密码错误",
                   type: "error"
                 });
+                this.ruleForm.username=""
+                this.ruleForm.pass=""
+                this.ruleForm.code=""
+                this.getCheck();
               }
             })
             .catch(err => {
